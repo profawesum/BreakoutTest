@@ -7,6 +7,10 @@ public class BallController : MonoBehaviour
     //how fast the ball moves
     public float ballMoveSpeed;
 
+    public GameObject Player;
+
+    bool ballLaunched;
+
     [SerializeField] UIManager uiManager;
 
     //finds out where the ball hit
@@ -15,8 +19,25 @@ public class BallController : MonoBehaviour
         return (ballPosition.x - playerPosition.x) / playerWidth;
 
     }
-        //checks to see what the ball collides with
-        private void OnCollisionEnter(Collision collision)
+
+
+    //called when the ball is launched
+    public void launchBall()
+    {
+        //checks to see if the ball has been launched
+        if (!ballLaunched)
+        {
+            //calculate the direction of the ball
+            Vector3 direction = Quaternion.AngleAxis(Random.Range(-45.0f, 45.0f), Vector3.forward) * Vector3.up;
+            //sets the velocity for the ball
+            GetComponent<Rigidbody>().velocity = direction * ballMoveSpeed * Time.deltaTime;
+            //makes it so the player cannot spam the launch button
+            ballLaunched = true;
+        }
+    }
+
+    //checks to see what the ball collides with
+    private void OnCollisionEnter(Collision collision)
     {
         //if player
         if (collision.gameObject.tag == "Player") {
@@ -40,8 +61,15 @@ public class BallController : MonoBehaviour
 
         //if killzone
         if (collision.gameObject.tag == "KillZone") {
-            //WILL NEED TO BE CHANGED
-            Application.LoadLevel(Application.loadedLevel);
+            //reparent the ball to the player
+            this.transform.parent = Player.transform;
+
+            //set the ball to the same position as the player
+            Vector3 playerPosition = Player.transform.position;
+            playerPosition.y += 1;
+            this.transform.position = playerPosition;
+            //make it so the ball can be launched again
+            ballLaunched = false;
         }
     }
 }
