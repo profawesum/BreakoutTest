@@ -14,7 +14,10 @@ namespace Mirror{
 
         private void Start()
         {
-            ballController = GameObject.FindGameObjectWithTag("Ball").GetComponent<BallController>();
+            if (isLocalPlayer)
+            {
+                ballController = GameObject.FindGameObjectWithTag("Ball").GetComponent<BallController>();
+            }
         }
 
         // Update is called once per frame
@@ -26,7 +29,6 @@ namespace Mirror{
                 if (Input.GetButtonDown("Fire1"))
                 {
                     ballController.launchBall();
-                    this.transform.DetachChildren();
                 }
 
                 //gets the move direction

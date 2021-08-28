@@ -6,6 +6,8 @@ using UnityEngine;
 namespace Mirror
 {
 
+    //make sure there is an audioSource
+    [RequireComponent(typeof(AudioSource))]
     public class BallController : NetworkBehaviour
     {
         //how fast the ball moves
@@ -14,11 +16,15 @@ namespace Mirror
         public GameObject Player;
         public GameObject[] player;
 
-        bool ballLaunched;
-
         Vector3 playerPosition;
 
+        bool ballLaunched;
+
         [SerializeField] UIManager uiManager;
+
+        [Header("Audio")]
+        public AudioClip hitSFX;
+        AudioSource audioSource;
 
         //finds out where the ball hit
         float hitFactor(Vector3 ballPosition, Vector3 playerPosition, float playerWidth)
@@ -28,21 +34,26 @@ namespace Mirror
 
         }
 
-
-
         private void Start()
         {
+            //find the audio source
+            audioSource = GetComponent<AudioSource>();
+
+            //find each player
             foreach (GameObject objet in player){
 
                 Player = GameObject.FindGameObjectWithTag("Player");
             }
+            //find the UI manager
             uiManager = GameObject.FindGameObjectWithTag("UI").GetComponent<UIManager>();
         }
 
         private void Update()
         {
+            //checks to see if the ball has been launched
             if (!ballLaunched)
             {
+                //if the ball hasn't make it the same pos as the player
                 this.transform.position = getPlayerPos();
             }
         }
@@ -74,6 +85,9 @@ namespace Mirror
         //checks to see what the ball collides with
         private void OnCollisionEnter(Collision collision)
         {
+            //play a sound effect when the ball hits something
+            audioSource.PlayOneShot(hitSFX);
+
             //if player
             if (collision.gameObject.tag == "Player")
             {
@@ -93,14 +107,12 @@ namespace Mirror
                 //destroy the brick
                 Destroy(collision.gameObject);
                 //increase the score
-                uiManager.increaseScore(100);
+                uiManager.score += 100;
             }
 
             //if killzone
             if (collision.gameObject.tag == "KillZone")
-            {
-                //reparent the ball to the player
-                this.transform.parent = Player.transform;
+            {  
                 //make the position of the ball the same as the player
                 this.transform.position = getPlayerPos();
                 //make it so the ball can be launched again

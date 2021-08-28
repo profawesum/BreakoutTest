@@ -20,7 +20,7 @@ namespace Mirror.Examples.Pong
             NetworkServer.AddPlayerForConnection(conn, player);
 
             // spawn ball if two players
-            if (numPlayers == 2)
+            if (numPlayers == 1)
             {
                 ball = Instantiate(spawnPrefabs.Find(prefab => prefab.name == "Ball"));
                 NetworkServer.Spawn(ball);
