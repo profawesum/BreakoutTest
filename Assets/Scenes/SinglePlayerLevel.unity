@@ -1803,6 +1803,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0843f18ece561f142b6e897893679ff3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
   scoreText: {fileID: 647830511}
   score: 0
 --- !u!1 &632712620
@@ -3625,7 +3627,7 @@ GameObject:
   - component: {fileID: 1260452920}
   m_Layer: 0
   m_Name: Ball
-  m_TagString: Untagged
+  m_TagString: Ball
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3642,8 +3644,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98834d03281337f4399abc2485c244dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
   ballMoveSpeed: 750
   Player: {fileID: 1590453929}
+  player: []
   uiManager: {fileID: 630348510}
 --- !u!54 &1260452921
 Rigidbody:
@@ -4416,6 +4421,7 @@ GameObject:
   - component: {fileID: 1590453930}
   - component: {fileID: 1590453935}
   - component: {fileID: 1590453936}
+  - component: {fileID: 1590453931}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -4435,8 +4441,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18e9b1ff5e7bd614884ebed450fdf401, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
   moveSpeed: 7.5
   ballController: {fileID: 1260452920}
+--- !u!114 &1590453931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1590453929}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneId: 2543271032
+  serverOnly: 0
+  visible: 0
+  m_AssetId: 
+  hasSpawned: 0
 --- !u!23 &1590453932
 MeshRenderer:
   m_ObjectHideFlags: 0
