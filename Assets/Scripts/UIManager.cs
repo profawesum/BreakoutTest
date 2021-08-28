@@ -3,18 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-
-public class UIManager : MonoBehaviour
+namespace Mirror
 {
 
-    public Text scoreText;
-    public int score;
+    public class UIManager : NetworkBehaviour
+    {
 
-    public void increaseScore(int scoreToIncrease) {
-        score += scoreToIncrease;
-    }
+        public Text scoreText;
+        public int score;
 
-    public void Update() {
-        scoreText.text = score.ToString();
+        public void increaseScore(int scoreToIncrease)
+        {
+            score += scoreToIncrease;
+        }
+
+        public void Update()
+        {
+            scoreText.text = score.ToString();
+        }
     }
 }
