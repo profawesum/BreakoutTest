@@ -11,6 +11,8 @@ public class BallController : MonoBehaviour
 
     bool ballLaunched;
 
+    Vector3 playerPosition;
+
     [SerializeField] UIManager uiManager;
 
     //finds out where the ball hit
@@ -20,6 +22,22 @@ public class BallController : MonoBehaviour
 
     }
 
+
+    private void Update()
+    {
+        if (!ballLaunched)
+        {
+            this.transform.position = getPlayerPos();
+        }
+    }
+
+
+    Vector3 getPlayerPos() {
+        //set the ball to the same position as the player
+        playerPosition = Player.transform.position;
+        playerPosition.y += 1;
+        return playerPosition;
+    }
 
     //called when the ball is launched
     public void launchBall()
@@ -63,11 +81,8 @@ public class BallController : MonoBehaviour
         if (collision.gameObject.tag == "KillZone") {
             //reparent the ball to the player
             this.transform.parent = Player.transform;
-
-            //set the ball to the same position as the player
-            Vector3 playerPosition = Player.transform.position;
-            playerPosition.y += 1;
-            this.transform.position = playerPosition;
+            //make the position of the ball the same as the player
+            this.transform.position = getPlayerPos();
             //make it so the ball can be launched again
             ballLaunched = false;
         }
