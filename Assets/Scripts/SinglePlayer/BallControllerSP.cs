@@ -15,11 +15,14 @@ public class BallControllerSP : MonoBehaviour
 
     [SerializeField] UIManagerSP uiManager;
 
+    [Header("Audio")]
+    public AudioClip hitSFX;
+    public AudioSource audioSource;
+
     //finds out where the ball hit
     float hitFactor(Vector3 ballPosition, Vector3 playerPosition, float playerWidth){
         //returns where the ball hit
         return (ballPosition.x - playerPosition.x) / playerWidth;
-
     }
 
 
@@ -59,6 +62,9 @@ public class BallControllerSP : MonoBehaviour
     //checks to see what the ball collides with
     private void OnCollisionEnter(Collision collision)
     {
+        //play a sound effect when the ball hits something
+        audioSource.PlayOneShot(hitSFX);
+
         //if player
         if (collision.gameObject.tag == "Player") {
             //find where the ball hit
