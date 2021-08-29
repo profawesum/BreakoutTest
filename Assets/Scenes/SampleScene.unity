@@ -1800,7 +1800,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 630348505}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0843f18ece561f142b6e897893679ff3, type: 3}
+  m_Script: {fileID: 11500000, guid: d6d3282f256b30a46ba83dcc9c4df83b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 647830511}
@@ -3639,7 +3639,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1260452919}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98834d03281337f4399abc2485c244dd, type: 3}
+  m_Script: {fileID: 11500000, guid: ed7232fdd6f1343419758db25ab37e6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ballMoveSpeed: 750
@@ -4413,9 +4413,9 @@ GameObject:
   - component: {fileID: 1590453934}
   - component: {fileID: 1590453933}
   - component: {fileID: 1590453932}
-  - component: {fileID: 1590453930}
   - component: {fileID: 1590453935}
   - component: {fileID: 1590453936}
+  - component: {fileID: 1590453930}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -4432,7 +4432,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1590453929}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18e9b1ff5e7bd614884ebed450fdf401, type: 3}
+  m_Script: {fileID: 11500000, guid: dcc6e25630bdbdd4c8c6076ebd8326b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 7.5
