@@ -39,11 +39,18 @@ namespace Mirror
             //find the audio source
             audioSource = GetComponent<AudioSource>();
 
-            //find each player
-            foreach (GameObject objet in player){
-
-                Player = GameObject.FindGameObjectWithTag("Player");
+            if (this.gameObject.name == "p1Ball") {
+                Player = GameObject.Find("PlayerOne");
             }
+            else
+            {
+                Player = GameObject.Find("PlayerTwo");
+            }
+            ////find each player
+            //foreach (GameObject objet in player){
+
+            //    Player = GameObject.FindGameObjectWithTag("Player");
+            //}
             //find the UI manager
             uiManager = GameObject.FindGameObjectWithTag("UI").GetComponent<UIManager>();
         }
