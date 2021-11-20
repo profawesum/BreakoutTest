@@ -14,7 +14,6 @@ namespace Mirror
         public float ballMoveSpeed;
 
         public GameObject Player;
-        public GameObject[] player;
 
         Vector3 playerPosition;
 
@@ -46,11 +45,6 @@ namespace Mirror
             {
                 Player = GameObject.Find("PlayerTwo");
             }
-            ////find each player
-            //foreach (GameObject objet in player){
-
-            //    Player = GameObject.FindGameObjectWithTag("Player");
-            //}
             //find the UI manager
             uiManager = GameObject.FindGameObjectWithTag("UI").GetComponent<UIManager>();
         }

@@ -26,9 +26,7 @@ namespace Mirror
                 NetworkServer.Spawn(p1Ball);
                 p1Ball.name = "p1Ball";
             }
-            else {
-
-                
+            else {  
                 player.name = "PlayerTwo";
                 p2Ball = Instantiate(spawnPrefabs.Find(prefab => prefab.name == "Ball"));
                 NetworkServer.Spawn(p2Ball);
