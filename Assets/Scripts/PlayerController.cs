@@ -14,16 +14,10 @@ namespace Mirror{
 
         private void Start()
         {
+            //gets the reference to the ball
             if (isLocalPlayer)
             {
-                if (this.gameObject.name == "PlayerOne")
-                {
-                    ballController = GameObject.Find("p1Ball").GetComponent<BallController>();
-                }
-                else {
-                    this.gameObject.name = "PlayerTwo";
-                    ballController = GameObject.Find("p2Ball").GetComponent<BallController>();
-                }
+              ballController = GameObject.FindGameObjectWithTag("Ball").GetComponent<BallController>();
             }
         }
 

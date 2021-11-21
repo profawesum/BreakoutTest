@@ -2370,9 +2370,8 @@ MonoBehaviour:
   playerSpawnMethod: 0
   spawnPrefabs:
   - {fileID: 2249545712648552241, guid: 904156852b65b824aaf9be927decca20, type: 3}
-  - {fileID: 2249545712648552241, guid: 904156852b65b824aaf9be927decca20, type: 3}
-  leftPlayerSpawn: {fileID: 1239522383}
-  rightPlayerSpawn: {fileID: 398356215}
+  playerOneSpawn: {fileID: 1239522383}
+  playerTwoSpawn: {fileID: 398356215}
 --- !u!4 &530823820
 Transform:
   m_ObjectHideFlags: 0

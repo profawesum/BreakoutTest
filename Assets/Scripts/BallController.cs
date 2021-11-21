@@ -14,6 +14,7 @@ namespace Mirror
         public float ballMoveSpeed;
 
         public GameObject Player;
+        public GameObject[] player;
 
         Vector3 playerPosition;
 
@@ -38,14 +39,12 @@ namespace Mirror
             //find the audio source
             audioSource = GetComponent<AudioSource>();
 
-            if (this.gameObject.name == "p1Ball") {
-                Player = GameObject.Find("PlayerOne");
-            }
-            else
+            //find the players
+            foreach (GameObject objet in player)
             {
-                Player = GameObject.Find("PlayerTwo");
+                Player = GameObject.FindGameObjectWithTag("Player");
             }
-            //find the UI manager
+            //find the UI Manager
             uiManager = GameObject.FindGameObjectWithTag("UI").GetComponent<UIManager>();
         }
 
