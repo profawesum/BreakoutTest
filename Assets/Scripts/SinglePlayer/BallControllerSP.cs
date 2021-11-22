@@ -53,7 +53,7 @@ public class BallControllerSP : MonoBehaviour
             //calculate the direction of the ball
             Vector3 direction = Quaternion.AngleAxis(Random.Range(-45.0f, 45.0f), Vector3.forward) * Vector3.up;
             //sets the velocity for the ball
-            GetComponent<Rigidbody>().velocity = direction * (ballMoveSpeed * 3) * Time.deltaTime;
+            GetComponent<Rigidbody>().velocity = direction * ballMoveSpeed * Time.deltaTime;
             //makes it so the player cannot spam the launch button
             ballLaunched = true;
         }
